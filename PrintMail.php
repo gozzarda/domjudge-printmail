@@ -124,6 +124,6 @@ class PrintMail
             return [FALSE, $e->getMessage()];
         }
 
-        return [$retval == 0, "File sent to $printmail for printing."];
+        return [$retval == 0, "File sent to $mailaddr for printing."];
     }
 }
