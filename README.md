@@ -9,4 +9,5 @@ A mod to replace DOMJudge printing with emailing
   - `git clone https://github.com/PHPMailer/PHPMailer.git`
   - `cd -`
 - Add `./webapp/src/DOMJudgeBundle/Utils/PrintMail.php`
+  - Replace `BADSECRET` with real password
 - Replace `./webapp/src/DOMJudgeBundle/Controller/Team/MiscController.php`
