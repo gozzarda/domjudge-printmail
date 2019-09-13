@@ -202,12 +202,13 @@ class MiscController extends BaseController
 
             $team = $this->dj->getUser()->getTeam();
             $affil = $team->getAffiliation();
+            $location = $affil ? $affil->getShortname() : null;
             $mailaddr = null;
-            if (preg_match('/<printmail>(.*)<\/printmail>/', $affil->getComments(), $match)) {
+            if ($affil && preg_match('/<printmail>(.*)<\/printmail>/', $affil->getComments(), $match)) {
                 $mailaddr = $match[1];
             }
             $ret  = PrintMail::send($realfile, $originalfilename, $langid, $username, $team->getName(),
-                                   $affil->getShortname(), $mailaddr);
+                                   $location, $mailaddr);
 
             return $this->render('@DOMJudge/team/print_result.html.twig', [
                 'success' => $ret[0],
