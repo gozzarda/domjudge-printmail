@@ -204,7 +204,7 @@ class MiscController extends BaseController
             $affil = $team->getAffiliation();
             $location = $affil ? $affil->getShortname() : null;
             $mailaddr = null;
-            if ($affil && preg_match('/<printmail>(.*)<\/printmail>/', $affil->getComments(), $match)) {
+            if ($affil && $affil->getComments() && preg_match('/<printmail>(.*)<\/printmail>/', $affil->getComments(), $match)) {
                 $mailaddr = $match[1];
             }
             $ret  = PrintMail::send($realfile, $originalfilename, $langid, $username, $team->getName(),
