@@ -99,7 +99,7 @@ class PrintMail
             $location = "Unknown Location";
         }
 
-        $mailer = new PHPMailer(TURE);
+        $mailer = new PHPMailer(true);
 
         try {
             $mailer->isSMTP();
